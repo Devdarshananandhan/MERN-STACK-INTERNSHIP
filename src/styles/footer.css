@@ -1,0 +1,52 @@
+.portfolio-footer {
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .social-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .social-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #e0e0e0;
+  }
+  
+  .social-links a:hover::after {
+    width: 100%;
+  }
+  
+  .copyright {
+    font-size: 0.9em;
+    opacity: 0.7;
+  }

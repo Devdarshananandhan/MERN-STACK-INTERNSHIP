@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MongoDB CRUD Operations</title>
+    </head>
+    <body>
+        <h1>
+            MongoDB CRUD Examples
+        </h1>
+
+        {{#if editid}}
+        <h3>Edit Form</h3>
+        <form action="/updateinfo/{{editid}}" method="POST">
+            <label for="">Emp Id</label>
+            <input type="text" name="eid" value="{{edit_emp.empid}}"><br><br>
+            <label for="">Emp Name</label>
+            <input type="text" name="ename" value="{{edit_emp.empname}}"><br><br>
+            <input type="submit">
+        </form>
+
+        {{else}}
+        <h3>Create Form</h3>
+        <form action="/empinfo" method="POST">
+            <label for="">Emp Id</label>
+            <input type="text" name="eid"><br><br>
+            <label for="">Emp Name</label>
+            <input type="text" name="ename"><br><br>
+            <input type="submit">
+        </form>
+        {{/if}}
+
+         <p>{{msg}}</p>
+
+        {{#each datas}}
+        <p>{{this.empid}}  {{this.empname}} <a href="/?edit_id={{this._id}}">Edit</a> <a href="/?delete_id={{this._id}}">Delete</a></p>
+        {{/each}}
+        {{!-- <p>{{datas}}</p> --}}
+
+        {{!-- {{#each datas}}
+        <h2>{{this.name}}</h2>
+        {{/each}}
+        <p>{{msg}}</p> --}}
+    </body>
+</html>

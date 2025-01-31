@@ -1,27 +1,27 @@
-// const mongo = require('mongodb')
-// const mongoclient = mongo.MongoClient
-// let object = mongo.ObjectId;
+// const mongodb = require("mongodb");
+// const mongoClient = mongodb.MongoClient;
 
-const mongose = require('mongoose')
-
-async function getdbconnection(){
-    // const client = await mongoclient.connect('mongodb://127.0.0.1:27017');
-    // const database = client.db("deva")
-    // if (database){
-    //     console.log('Database Connected successfully')
-    //     return database
-    // }
-    // else{
-    //     console.log('Database connection failed!')
-    //     // return database
-    // }
-    mongose.connect('mongodb://127.0.0.1:27017/deva')
-    .then(() => {
-        console.log('Database Connected successfully')
+let database;
+//let objectId = mongodb.ObjectId;
+const mongse = require("mongoose");
+async function getDatabase(){
+    mongse.connect("mongodb://127.0.0.1:27017/t1")
+    .then(()=>{
+        console.log("db connected.....");
     })
     .catch(()=>{
-        console.log('Database connection failed!')
-    })
+        console.log("db errrr...");
+    });
+    //Correct Mongodb connection string
+    // const client = await mongoClient.connect('mongodb://127.0.0.1:27017');
+    // database = client.db("t1");
+    // if(database){
+    //     console.log("Database Connected Successfully");
+    // }
+    // else{
+    //     console.log("Database Connection Failed");
+    // }
+    // return database;
 }
-
-module.exports = {getdbconnection}
+ 
+module.exports = {getDatabase};

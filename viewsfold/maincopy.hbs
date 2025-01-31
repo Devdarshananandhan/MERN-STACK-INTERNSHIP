@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>MongoDB CRUD Operations</title>
+        <meta http-eqiv="X-UA-Compatible" content="IE=edge">
+        {{!-- <title>MONGODB CRUD</title> --}}
+        <title>MONGOOSE CRUD EXAMPLE</title>
     </head>
-    <body>
-        <h1>
-            MongoDB CRUD Examples
-        </h1>
-
-        {{#if editid}}
-        <h3>Edit Form</h3>
-        <form action="/updateinfo/{{editid}}" method="POST">
-            <label for="">Emp Id</label>
-            <input type="text" name="eid" value="{{edit_emp.empid}}"><br><br>
-            <label for="">Emp Name</label>
-            <input type="text" name="ename" value="{{edit_emp.empname}}"><br><br>
-            <input type="submit">
-        </form>
-
-        {{else}}
-        <h3>Create Form</h3>
-        <form action="/empinfo" method="POST">
-            <label for="">Emp Id</label>
-            <input type="text" name="eid"><br><br>
-            <label for="">Emp Name</label>
-            <input type="text" name="ename"><br><br>
-            <input type="submit">
-        </form>
-        {{/if}}
-
-         <p>{{msg}}</p>
-
+<body>
+{{!-- <h1>MONGODB CRUD Example</h1> --}}
+<h1>MONGOOSE CRUD Example</h1>
+    {{#if edit_id}}
+    <h3>Edit form</h3>
+    <form action="/updateinfo/{{edit_id}}" method="POST">
+    <label for="">EMP ID</label>
+    <input type="text" name="empid" value ="{{edit_emp.empid}}">
+    <label for="">EMP NAME</label>
+    <input type="text" name="empname" value ="{{edit_emp.empname}}">
+    <input type="submit">
+    </form><br><br>
+    {{else}}
+    <h3>Create form</h3>
+    <form action="/empinfo" method="POST">
+    <label for="">EMP ID</label>
+    <input type="text" name="empid" >
+    <label for="">EMP NAME</label>
+    <input type="text" name="empname" >
+    <input type="submit">
+    </form><br><br>
+    {{/if}}
+    <ul>
         {{#each datas}}
-        <p>{{this.empid}}  {{this.empname}} <a href="/?edit_id={{this._id}}">Edit</a> <a href="/?delete_id={{this._id}}">Delete</a></p>
+        <li>
+            {{this.empid}}
+            {{this.empname}}
+            <a href="/?edit_idd={{this._id}}">Edit</a>
+              <a href="/?delete_idd={{this._id}}" onclick = "return confirm('Are you conform to delete?')">Delete</a>
+        </li>
         {{/each}}
-        {{!-- <p>{{datas}}</p> --}}
-
-        {{!-- {{#each datas}}
-        <h2>{{this.name}}</h2>
-        {{/each}}
-        <p>{{msg}}</p> --}}
-    </body>
+    </ul>
+    <p>{{message}}</p>
+</body>
 </html>
